@@ -3,18 +3,10 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-  <title>$List of Students</title>
+    <title>ADMIN page</title>
 </head>
 <body>
-<br>
-
-
-  <tbody>
-  <a href="/admin/">Roleadmin</a>
-  <br>
-  <a href="/user/">Roleuser</a> </br>
-  </tbody>
-
+ADmin
 </body>
 </html>
 

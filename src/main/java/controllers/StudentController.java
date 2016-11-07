@@ -32,71 +32,21 @@ public class StudentController {
         return modelAndView;
     }
 
-    @RequestMapping(value = "/user")
+    @RequestMapping(value = "/admin")
     public ModelAndView search(HttpServletRequest req) {
+        ModelAndView modelAndView = new ModelAndView();
+
+        modelAndView.setViewName("admin");
+        return modelAndView;
+    }
+
+    @RequestMapping(value = "/user")
+    public ModelAndView delete(HttpServletRequest req) {
         ModelAndView modelAndView = new ModelAndView();
 
         modelAndView.setViewName("user");
         return modelAndView;
     }
-//
-//
-//    /**
-//     * @param id id student
-//     * @return
-//     */
-    @RequestMapping(value = "/admin", method = RequestMethod.GET)
-    public String delete(HttpServletRequest req) {
-
-        return "redirect:/";
-    }
-
-//    /**
-//     * show data about student who have this id
-//     *
-//     * @param id
-//     * @return
-//     */
-//    @RequestMapping(value = "student/{id}", method = RequestMethod.GET)
-//    public ModelAndView view(/*HttpServletRequest req*/ @PathVariable Long id) {
-//        logger.info("Show {}",id);
-//        ModelAndView mv = new ModelAndView("form");
-//        mv.addObject("student", studentService.getById(id));
-//        return mv;
-//    }
-//
-//    /**
-//     * create model and view and call addform.jsp
-//     *
-//     * @param req
-//     * @return
-//     */
-//    @RequestMapping(value = "/add")
-//    public ModelAndView showAddForm(HttpServletRequest req) {
-//        ModelAndView mv = new ModelAndView("addform");
-//        if (req.getParameter("firstName") != null && !req.getParameter("firstName").equals("")) {
-//            Student student = new Student(req);
-//            studentService.add(student);
-//        }
-//        return mv;
-//    }
-//
-//    /**
-//     * Controller for Update data about Student
-//     * @param req
-//     * @param id
-//     * @return
-//     */
-//    @RequestMapping(value = "student/{id}", method = RequestMethod.POST)
-//    public ModelAndView update(HttpServletRequest req, @PathVariable Long id){
-//        logger.info("Update {}",id);
-//        ModelAndView mv = new ModelAndView("form");
-//        Student student = new Student(req);
-//        studentService.update(id,student);
-//        mv.addObject("student", studentService.getById(id));
-//        return mv;
-//    }
-
 }
 
 
