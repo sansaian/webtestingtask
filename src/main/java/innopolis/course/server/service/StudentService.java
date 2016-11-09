@@ -1,10 +1,10 @@
-package innopolis.course.service;
+package innopolis.course.server.service;
 
-import innopolis.course.entity.Student;
+import innopolis.course.server.entity.Student;
 
 import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;
-import java.sql.Date;
+import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
 /**
@@ -17,7 +17,7 @@ public class StudentService {
         this.em = em;
     }
 
-    public Student createStudent(int id, String firstName,String lastName,String sex) {
+    public Student createStudent(String firstName,String lastName,String sex) {
         Student student = new Student();
         student.setFirstName(firstName);
         student.setLastName(lastName);
@@ -26,6 +26,15 @@ public class StudentService {
         return student;
     }
 
+    public Student createStudent(HttpServletRequest req){
+        Student student = new Student();
+        student.setFirstName(req.getParameter("firstName"));
+        student.setLastName(req.getParameter("lastName"));
+        student.setSex(req.getParameter("sex"));
+       // student.setBirth(req.getParameter("birth"));
+        em.persist(student);
+        return student;
+    }
     public void removeArtist(int id) {
         Student student = em.find(Student.class, id);
 
@@ -47,6 +56,7 @@ public class StudentService {
     public Student findStudent(int id) {
         return em.find(Student.class, id);
     }
+
 
     public List<Student> findAllStudent() {
         TypedQuery<Student> query = em.createQuery("SELECT a FROM Student a", Student.class);

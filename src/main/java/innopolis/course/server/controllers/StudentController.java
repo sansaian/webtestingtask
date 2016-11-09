@@ -1,7 +1,7 @@
-package innopolis.course.controllers;
+package innopolis.course.server.controllers;
 
-import innopolis.course.entity.Student;
-import innopolis.course.service.StudentService;
+import innopolis.course.server.entity.Student;
+import innopolis.course.server.service.StudentService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
@@ -22,6 +22,8 @@ import javax.servlet.http.HttpServletRequest;
 public class StudentController {
     EntityManagerFactory emf = Persistence.createEntityManagerFactory("JpaBasicsTutorial");
     EntityManager em = emf.createEntityManager();
+
+    //заменить на autowired
     StudentService service = new StudentService(em);
 
 
@@ -34,30 +36,49 @@ public class StudentController {
     @RequestMapping(value = "/")
     public ModelAndView main() {
         ModelAndView modelAndView = new ModelAndView();
-
+        modelAndView.addObject("list", service.findAllStudent());
         modelAndView.setViewName("index");
         return modelAndView;
     }
 
-    @RequestMapping(value = "/admin")
+    @RequestMapping(value = "/admin/list")
     public ModelAndView search(HttpServletRequest req) {
         ModelAndView modelAndView = new ModelAndView();
-        System.out.println("--- Create and persist artist ---");
-        EntityTransaction transaction = em.getTransaction();
-        transaction.begin();
-        Student student = service.createStudent(10,"Max","Shalavin","m");
-
-        transaction.commit();
         modelAndView.setViewName("admin");
         return modelAndView;
     }
 
-    @RequestMapping(value = "/user")
+    @RequestMapping(value = "/user/list")
     public ModelAndView delete(HttpServletRequest req) {
         ModelAndView modelAndView = new ModelAndView();
 
         modelAndView.setViewName("user");
         return modelAndView;
+    }
+
+    @RequestMapping(value = "admin/add")
+    public ModelAndView showAddForm(HttpServletRequest req) {
+        ModelAndView mv = new ModelAndView("addform");
+        return mv;
+    }
+
+    @RequestMapping(value = "admin/add/addform")
+    public ModelAndView AddStudent(HttpServletRequest req) {
+        ModelAndView mv = new ModelAndView("addform");
+        if (req.getParameter("firstName") != null && !req.getParameter("firstName").equals("")) {
+
+            EntityTransaction transaction = em.getTransaction();
+            transaction.begin();
+            service.createStudent(req);
+           // Student student = service.createStudent("Bob","Shaasdasdasd","male");
+            transaction.commit();
+            req.setAttribute("msg", "Student is add");
+        }
+        else
+        {
+            req.setAttribute("msg", "please,fill in the form");
+        }
+        return mv;
     }
 }
 

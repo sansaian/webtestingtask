@@ -23,6 +23,7 @@
           <element id="library" level="project" name="Gradle: org.springframework.security:spring-security-web:3.2.5.RELEASE" />
           <element id="library" level="project" name="Gradle: org.springframework.security:spring-security-taglibs:3.2.5.RELEASE" />
           <element id="library" level="project" name="Gradle: org.hibernate:hibernate-entitymanager:5.2.4.Final" />
+          <element id="library" level="project" name="Gradle: postgresql:postgresql:9.1-901-1.jdbc4" />
           <element id="library" level="project" name="Gradle: log4j:log4j:1.2.17" />
           <element id="library" level="project" name="Gradle: org.springframework:spring-aop:4.3.3.RELEASE" />
           <element id="library" level="project" name="Gradle: org.springframework:spring-beans:4.3.3.RELEASE" />
@@ -54,7 +55,6 @@
           <element id="library" level="project" name="Gradle: org.springframework:spring-webmvc:4.3.3.RELEASE" />
           <element id="library" level="project" name="Gradle: commons-logging:commons-logging:1.2" />
           <element id="library" level="project" name="Gradle: org.springframework:spring-web:4.3.3.RELEASE" />
-          <element id="file-copy" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/postgresql/postgresql/9.1-901-1.jdbc4/9bfabe48876ec38f6cbaa6931bad05c64a9ea942/postgresql-9.1-901-1.jdbc4.jar" />
         </element>
       </element>
       <element id="directory" name="META-INF">

@@ -1,5 +1,5 @@
-import innopolis.course.entity.Student;
-import innopolis.course.service.StudentService;
+import innopolis.course.server.entity.Student;
+import innopolis.course.server.service.StudentService;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -18,7 +18,7 @@ public class JpaBasicsTutorial {
         System.out.println("--- Create and persist artist ---");
         EntityTransaction transaction = em.getTransaction();
         transaction.begin();
-//        Student student = service.createStudent(10,"asdasdasda");
+        Student student = service.createStudent("Sadasd","Shalavin","male");
 
         transaction.commit();
 //        System.out.println(String.format("Persisted: %s\n", student));

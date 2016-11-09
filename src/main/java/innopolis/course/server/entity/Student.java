@@ -1,4 +1,4 @@
-package innopolis.course.entity;
+package innopolis.course.server.entity;
 
 import javax.persistence.*;
 import java.sql.Date;
@@ -11,7 +11,9 @@ import java.sql.Date;
 public class Student {
 
     @Id
-    private int id;
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
+    @Column(name="id")
+    private Long id;
     @Column(name = "first_name")
     private String firstName;
     @Column(name = "last_name")
@@ -21,11 +23,11 @@ public class Student {
     @Column(name = "birth")
     private Date birth;
 
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

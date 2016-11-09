@@ -6,15 +6,41 @@
   <title>$List of Students</title>
 </head>
 <body>
+<a href="/admin/list">Roleadmin</a>
 <br>
-
-
-  <tbody>
-  <a href="/admin/">Roleadmin</a>
+<a href="/user/list">Roleuser</a> </br>
+<br>
+<form action="/search" method="POST">
+  <input name="search" placeholder="search" >
+  <input type="submit" value="search">
   <br>
-  <a href="/user/">Roleuser</a> </br>
+</form>
+<table>
+  <thead>
+  <td>Id</td>
+  <td>First name</td>
+  <td>Last name</td>
+  <td>Sex</td>
+  <td>Birth date</td>
+  <td>Controls</td>
+  </thead>
+  <tbody>
+  <a href="admin/add/">Add new student</a>
+  <c:forEach items="${list}" var="item">
+    <tr>
+      <td>${item.id}</td>
+      <td>${item.firstName}</td>
+      <td>${item.lastName}</td>
+      <td>${item.sex}</td>
+      <td>${item.birth}</td>
+      <td>
+        <a href="/student/${item.id}">view/edit</a>
+        <a href="admin/del/${item.id}">delete</a>
+      </td>
+    </tr>
+  </c:forEach>
   </tbody>
+</table>
 
 </body>
 </html>
-

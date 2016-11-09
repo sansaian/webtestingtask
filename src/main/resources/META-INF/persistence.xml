@@ -3,7 +3,7 @@
 
     <persistence-unit name="JpaBasicsTutorial">
 
-        <class>innopolis.course.entity.Student</class>
+        <class>innopolis.course.server.entity.Student</class>
 
 
         <properties>
