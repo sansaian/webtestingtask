@@ -1,4 +1,4 @@
-package controllers;
+package innopolis.course.controllers;
 
 
 import org.springframework.stereotype.Controller;

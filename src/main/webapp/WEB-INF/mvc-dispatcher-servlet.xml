@@ -8,7 +8,7 @@
 
     <!-- DispatcherServlet Context: defines this servlet's request-processing
         infrastructure -->
-    <context:component-scan base-package="controllers" >
+    <context:component-scan base-package="innopolis.course.controllers" >
         <context:include-filter type="annotation" expression="org.springframework.stereotype.Repository"/>
     </context:component-scan>
     <!-- Enables the Spring MVC @Controller programming model -->
