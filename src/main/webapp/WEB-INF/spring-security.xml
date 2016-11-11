@@ -7,14 +7,15 @@
 	http://www.springframework.org/schema/security/spring-security-3.2.xsd">
 
     <!-- enable use-expressions -->
-        <http  use-expressions="true">
+    <http use-expressions="true">
 
         <intercept-url pattern="/" access="hasAnyRole('ROLE_ADMIN','ROLE_USER')"/>
-            <intercept-url pattern="/admin/**" access="hasRole('ROLE_ADMIN')"/>
-            <intercept-url pattern="/user/*" access="hasRole('ROLE_USER')"/>
+        <intercept-url pattern="/admin/**" access="hasRole('ROLE_ADMIN')"/>
+        <intercept-url pattern="/del/*" access="hasRole('ROLE_ADMIN')"/>
+        <intercept-url pattern="/user/*" access="hasRole('ROLE_USER')"/>
 
 
-                <!-- access denied page -->
+        <!-- access denied page -->
         <access-denied-handler error-page="/403"/>
 
         <form-login
@@ -32,11 +33,11 @@
 
     <authentication-manager>
         <authentication-provider>
-                 <user-service>
-            <user name="admin" password="admin" authorities="ROLE_ADMIN"/>
-            <user name="user1" password="1111" authorities="ROLE_USER"/>
-            <user name="user2" password="2222" disabled="true" authorities="ROLE_USER"/>
-        </user-service>
+            <user-service>
+                <user name="admin" password="admin" authorities="ROLE_ADMIN"/>
+                <user name="user1" password="1111" authorities="ROLE_USER"/>
+                <user name="user2" password="2222" disabled="true" authorities="ROLE_USER"/>
+            </user-service>
         </authentication-provider>
     </authentication-manager>
 

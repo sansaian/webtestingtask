@@ -10,7 +10,7 @@
 <br>
 <a href="/user/list">Roleuser</a> </br>
 <br>
-<form action="/search" method="POST">
+<form action="/search" method="GET">
   <input name="search" placeholder="search" >
   <input type="submit" value="search">
   <br>
@@ -35,7 +35,7 @@
       <td>${item.birth}</td>
       <td>
         <a href="/student/${item.id}">view/edit</a>
-        <a href="admin/del/${item.id}">delete</a>
+        <a href="/del/${item.id}">delete</a>
       </td>
     </tr>
   </c:forEach>
