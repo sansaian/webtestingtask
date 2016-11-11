@@ -2,24 +2,24 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <html>
 <head>
-    <title>Student form!</title>
+    <title>Student form for Teacher</title>
 </head>
 <body>
 <style type="text/css">
     .msg {
-        color: #9429f9; /* Цвет текста */
+        color: #9429f9;
         font-size: 11pt;
     }
 </style>
 <c:if test="${not empty msg}">
     <div class="msg"><h1 >${msg} </h1></div>
 </c:if>
-<form action="addform" method="GET">
+<form action="" method="GET">
     <label>First name</label>
-    <input name="firstName" placeholder="firstName" >
+    <input name="firstName" placeholder="${student.firstName}" >
     <br>
     <label>Last name</label>
-    <input name="lastName" placeholder="lastName">
+    <input name="lastName" placeholder="${student.lastName}">
     <br>
     <label>Sex</label>
     <select name="sex">
@@ -27,8 +27,7 @@
         <option value="f" <c:if test="${student.sex == 'f'}">selected="selected"</c:if> >female</option>
     </select>
     <br>
-    <input name="birth" placeholder="dd-mm-yyyy"><br>
-    <input type="submit" value="Add">
+    <input type="submit" value="${student.id>0?'Update':'Add'}">
     <br><a href="/">Back to list</a><br>
 </form>
 </body>

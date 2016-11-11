@@ -27,10 +27,4 @@
         <property name="prefix" value="/WEB-INF/jsp/" />
         <property name="suffix" value=".jsp" />
     </bean>
-
-    <!--   <bean id="StudentService" class="innopolis.course.server.service.StudentServiceImpl">
-       </bean>-->
-
-       <bean id="Dao" class="innopolis.course.server.dao.StudentDAOImpl">
-       </bean>
-   </beans>
+  </beans>

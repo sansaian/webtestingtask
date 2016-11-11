@@ -16,7 +16,7 @@ public interface StudentDAO {
 
     void removeStudent(Long id) ;
 
-    Student changeStudent(Long id, String firstname, String lastname, String sex, Date birth);
+    Student changeStudent(Long id, String firstname, String lastname);
 
     Student findStudent(Long id);
 

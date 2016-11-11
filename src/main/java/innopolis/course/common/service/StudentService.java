@@ -12,11 +12,11 @@ import java.util.List;
 public interface StudentService {
 
 
-    boolean createStudent(HttpServletRequest req);
+    boolean createnewStudent(HttpServletRequest req);
 
-     void removeStudent(Long id);
+     void removeOldStudent(Long id);
 
-    Student changeStudent(Long id, String firstName, String lastName, String sex, Date birth);
+    Student changeStudent(HttpServletRequest reg,Long id);
 
     Student findStudent(Long id);
 

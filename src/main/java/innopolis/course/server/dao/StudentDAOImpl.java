@@ -40,24 +40,24 @@ public class StudentDAOImpl implements StudentDAO {
 
         }
     }
-
+/////////////////////////////////////////
     @Override
-    public Student changeStudent(Long id, String firstname, String lastname, String sex, Date birth) {
+    public Student changeStudent(Long id, String firstname, String lastname) {
         Student student = em.find(Student.class, id);
 
         if (student != null) {
             student.setFirstName(firstname);
             student.setLastName(lastname);
-            student.setSex(sex);
-            student.setBirth(birth);
+            em.merge(student);
         }
 
         return student;
     }
-
+///////////////////////////////////////////////////
     @Override
     public Student findStudent(Long id) {
-        return em.find(Student.class, id);
+        Student student =em.find(Student.class, id);
+        return student;
     }
 
     @Override

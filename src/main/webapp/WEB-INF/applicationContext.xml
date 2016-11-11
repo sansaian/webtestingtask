@@ -8,4 +8,11 @@
 
     <context:component-scan base-package="innopolis.course" />
 
+
+    <bean id="StudentService" class="innopolis.course.server.service.StudentServiceImpl">
+    </bean>
+
+    <bean id="studentDAO" class="innopolis.course.server.dao.StudentDAOImpl">
+    </bean>
+
 </beans>

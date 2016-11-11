@@ -10,6 +10,7 @@
     <http use-expressions="true">
 
         <intercept-url pattern="/" access="hasAnyRole('ROLE_ADMIN','ROLE_USER')"/>
+        <intercept-url pattern="/lessons" access="hasAnyRole('ROLE_ADMIN','ROLE_USER')"/>
         <intercept-url pattern="/admin/**" access="hasRole('ROLE_ADMIN')"/>
         <intercept-url pattern="/del/*" access="hasRole('ROLE_ADMIN')"/>
         <intercept-url pattern="/user/*" access="hasRole('ROLE_USER')"/>
@@ -41,5 +42,7 @@
         </authentication-provider>
     </authentication-manager>
 
+
+    <beans:bean id="webSecurityExpressionHandler" class="org.springframework.security.web.access.expression.DefaultWebSecurityExpressionHandler" />
 
 </beans:beans>

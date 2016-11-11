@@ -16,12 +16,11 @@ import java.util.List;
  * Created by Max Shalavin on 08.11.2016.
  */
 public class StudentServiceImpl implements StudentService {
-//    private EntityManager em;
-
-    StudentDAO dao= new StudentDAOImpl();
+    @Autowired
+    StudentDAO dao;
 
     @Override
-    public boolean createStudent(HttpServletRequest req) {
+    public boolean createnewStudent(HttpServletRequest req) {
         boolean result = false;
         Student student = dao.createStudent(req);
         if (student != null)
@@ -30,20 +29,13 @@ public class StudentServiceImpl implements StudentService {
     }
 
     @Override
-    public void removeStudent(Long id) {
+    public void removeOldStudent(Long id) {
         if(id!=null &&id>=0)
         dao.removeStudent(id);
     }
-//////////////////////////////
-    @Override
-    public Student changeStudent(Long id, String name, String sex, String firstName, Date birth) {
-
-        return dao.changeStudent(id,name,sex,firstName,birth);
-    }
-//////////////////////////////////
     public Student findStudent(Long id) {
-        if(id!=null &&id<0)
-        return dao.findStudent(id);
+        if(id!=null &&id>0)
+            return dao.findStudent(id);
         else
             return null;
     }
@@ -52,4 +44,17 @@ public class StudentServiceImpl implements StudentService {
     public List<Student> findAllStudent() {
         return dao.findAllStudent();
     }
+
+    @Override
+    public Student changeStudent(HttpServletRequest reg,Long id) {
+        String firstName =reg.getParameter("firstName");
+        String lastName = reg.getParameter("lastName");
+        Long studentId = id;
+        return dao.changeStudent(studentId,firstName,lastName);
+    }
+//////////////////////////////////
+
+
+
+
 }
