@@ -14,7 +14,7 @@
 <c:if test="${not empty msg}">
     <div class="msg"><h1 >${msg} </h1></div>
 </c:if>
-<form action="/admin/add/addform" method="GET">
+<form action="/student/${student.id}" method="GET">
     <label>First name</label>
     <input name="firstName" placeholder="${student.firstName}" >
     <br>
@@ -27,7 +27,7 @@
         <option value="f" <c:if test="${student.sex == 'f'}">selected="selected"</c:if> >female</option>
     </select>
     <br>
-    <input type="submit" value="Add">
+    <input type="submit" value="Update">
     <br><a href="/">Back to list</a><br>
 </form>
 </body>

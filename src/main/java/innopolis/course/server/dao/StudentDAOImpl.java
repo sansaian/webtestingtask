@@ -5,7 +5,6 @@ import innopolis.course.server.entity.Student;
 
 import javax.persistence.*;
 import javax.servlet.http.HttpServletRequest;
-import java.sql.Date;
 import java.util.List;
 
 /**
@@ -16,6 +15,7 @@ public class StudentDAOImpl implements StudentDAO {
     EntityManagerFactory emf = Persistence.createEntityManagerFactory("JpaBasicsTutorial");
     EntityManager em = emf.createEntityManager();
     EntityTransaction transaction = em.getTransaction();
+
     @Override
     public Student createStudent(HttpServletRequest req) {
 
@@ -24,7 +24,6 @@ public class StudentDAOImpl implements StudentDAO {
         student.setFirstName(req.getParameter("firstName"));
         student.setLastName(req.getParameter("lastName"));
         student.setSex(req.getParameter("sex"));
-        // student.setBirth(req.getParameter("birth"));
         em.persist(student);
         transaction.commit();
         return student;
@@ -37,10 +36,9 @@ public class StudentDAOImpl implements StudentDAO {
             transaction.begin();
             em.remove(student);
             transaction.commit();
-
         }
     }
-/////////////////////////////////////////
+
     @Override
     public Student changeStudent(Long id, String firstname, String lastname) {
         Student student = em.find(Student.class, id);
@@ -50,13 +48,12 @@ public class StudentDAOImpl implements StudentDAO {
             student.setLastName(lastname);
             em.merge(student);
         }
-
         return student;
     }
-///////////////////////////////////////////////////
+
     @Override
     public Student findStudent(Long id) {
-        Student student =em.find(Student.class, id);
+        Student student = em.find(Student.class, id);
         return student;
     }
 

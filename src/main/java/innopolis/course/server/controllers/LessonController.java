@@ -1,6 +1,6 @@
 package innopolis.course.server.controllers;
 
-import innopolis.course.common.service.StudentService;
+import innopolis.course.common.service.LessonService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,7 +19,7 @@ import javax.servlet.http.HttpServletRequest;
 public class LessonController {
 
     @Autowired
-    StudentService service;
+    LessonService service;
     private static Logger logger = LoggerFactory.getLogger(innopolis.course.server.controllers.StudentController.class);
 
     /**
@@ -30,7 +30,7 @@ public class LessonController {
     @RequestMapping(value = "/lessons")
     public ModelAndView main(HttpServletRequest req) {
         ModelAndView modelAndView = new ModelAndView();
-//        modelAndView.addObject("list", service.findAllStudent());
+        modelAndView.addObject("list", service.findAllLesson());
         modelAndView.setViewName("lessons");
         return modelAndView;
     }

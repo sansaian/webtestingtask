@@ -12,7 +12,13 @@
     <bean id="StudentService" class="innopolis.course.server.service.StudentServiceImpl">
     </bean>
 
-    <bean id="studentDAO" class="innopolis.course.server.dao.StudentDAOImpl">
+    <bean id="LessonService" class="innopolis.course.server.service.LessonServiceImpl">
+    </bean>
+
+    <bean id="StudentDAO" class="innopolis.course.server.dao.StudentDAOImpl">
+    </bean>
+
+    <bean id="LessonDAO" class="innopolis.course.server.dao.LessonDAOImpl">
     </bean>
 
 </beans>

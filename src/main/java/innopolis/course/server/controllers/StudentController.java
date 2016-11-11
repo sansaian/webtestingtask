@@ -71,14 +71,12 @@ public class StudentController {
 //        logger.info("Show {}",id);
         ModelAndView mv;
         if (req.isUserInRole("ROLE_ADMIN")) {
-            mv = new ModelAndView("addform");
+            mv = new ModelAndView("updateform");
             service.changeStudent(req, id);
         } else
             mv = new ModelAndView("studentform");
-        Long l = Long.valueOf(20);
         StudentDAOImpl dao = new StudentDAOImpl();
-
-        mv.addObject("student",dao.findStudent(l) /*service.findStudent(id)*/);
+        mv.addObject("student",dao.findStudent(id) /*service.findStudent(id)*/);
         return mv;
     }
 }
