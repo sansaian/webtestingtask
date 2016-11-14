@@ -1,6 +1,7 @@
 package innopolis.course.server.entity;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.sql.Date;
 
 /**
@@ -8,7 +9,7 @@ import java.sql.Date;
  */
 @Entity
 @Table(name = "students")
-public class Student {
+public class Student implements Serializable {
 
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)

@@ -76,6 +76,7 @@ public class StudentController {
         } else
             mv = new ModelAndView("studentform");
         StudentDAOImpl dao = new StudentDAOImpl();
+        service.findStudent(id);
         mv.addObject("student",dao.findStudent(id) /*service.findStudent(id)*/);
         return mv;
     }
